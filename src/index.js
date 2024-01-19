@@ -1,14 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { Provider } from "react-redux";
+// import { Store } from '@reduxjs/toolkit';
+// import { Store } from '@reduxjs/toolkit';
+import { store } from "./redux/Store";
+import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+// import { Toast, ToastContainer } from "react-toastify/dist/components";
+// import {Toaster} from 'react-hot-toaster'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// import { HotToastProvider } from 'react-hot-toast';
+
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+ 
+  <BrowserRouter>
+    <Provider store={store}>
+      {" "}
+      <App />
+     {/* <Toaster/> */}
+      <Toaster></Toaster>
+      
+    </Provider>
+  </BrowserRouter>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
